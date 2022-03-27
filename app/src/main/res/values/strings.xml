@@ -5,4 +5,6 @@
     <string name="berat_badan">Berat Badan (kg)</string>
     <string name="tinggi_badan">Tinggi Badan (cm)</string>
     <string name="label_btn">Uji Tahesmu</string>
+    <string name="kembali">Kembali</string>
+    <string name="nama">Nama</string>
 </resources>

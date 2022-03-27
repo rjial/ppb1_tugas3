@@ -2,6 +2,7 @@ package com.rijal.andatahes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,13 +19,14 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextInputEditText txtUsia, txtBeratBdn, txtTinggiBdn;
-    TextInputLayout lytUsia, lytBeratBdn, lytTinggiBdn;
+    TextInputEditText txtNama, txtUsia, txtBeratBdn, txtTinggiBdn;
+    TextInputLayout lytNama, lytUsia, lytBeratBdn, lytTinggiBdn;
     Button btnUji;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        txtNama = (TextInputEditText) findViewById(R.id.txtNama);
         txtUsia = (TextInputEditText) findViewById(R.id.txtUsia);
         txtBeratBdn = (TextInputEditText) findViewById(R.id.txtBeratBdn);
         txtTinggiBdn = (TextInputEditText) findViewById(R.id.txtTinggiBdn);
@@ -35,9 +37,33 @@ public class MainActivity extends AppCompatActivity {
         btnUji.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(tesKosong(txtUsia, txtBeratBdn, txtTinggiBdn, lytUsia, lytBeratBdn, lytTinggiBdn, view)) {
-                    Toast.makeText(MainActivity.this, "isok", Toast.LENGTH_SHORT).show();
+                if(tesKosong(txtNama, txtUsia, txtBeratBdn, txtTinggiBdn, lytNama, lytUsia, lytBeratBdn, lytTinggiBdn, view)) {
+//                    Toast.makeText(MainActivity.this, "isok", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, BMIActivity.class);
+                    intent.putExtra("NAMA", txtNama.getText().toString());
+                    intent.putExtra("USIA", txtUsia.getText().toString());
+                    intent.putExtra("BERAT_BADAN", txtBeratBdn.getText().toString());
+                    intent.putExtra("TINGGI_BADAN", txtTinggiBdn.getText().toString());
+                    startActivity(intent);
                 }
+            }
+        });
+        txtNama.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() > 0) {
+                    lytNama.setErrorEnabled(false);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
         txtUsia.addTextChangedListener(new TextWatcher() {
@@ -95,16 +121,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private boolean tesKosong(TextInputEditText txtUsia, TextInputEditText txtBeratBdn, TextInputEditText txtTinggiBdn, TextInputLayout lytUsia, TextInputLayout lytBeratBdn, TextInputLayout lytTinggiBdn, View view) {
+    private boolean tesKosong(TextInputEditText txtNama, TextInputEditText txtUsia, TextInputEditText txtBeratBdn, TextInputEditText txtTinggiBdn, TextInputLayout lytNama, TextInputLayout lytUsia, TextInputLayout lytBeratBdn, TextInputLayout lytTinggiBdn, View view) {
 //        View view = (View) txtUsia.getParent();
         boolean error = false;
+        if (txtNama.getText().length() == 0) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    lytNama.setErrorEnabled(true);
+                    lytNama.setError("Isi nama anda!");
+                }
+            });
+            error = true;
+        }
         if (txtUsia.getText().length() == 0) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     lytUsia.setErrorEnabled(true);
                     lytUsia.setError("Isi usia anda!");
-                    txtUsia.setError("Isi Usia anda!");
                 }
             });
             error = true;
@@ -114,8 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     lytBeratBdn.setErrorEnabled(true);
-                    lytBeratBdn.setError("Isi usia anda!");
-                    txtBeratBdn.setError("Isi Usia anda!");
+                    lytBeratBdn.setError("Isi berat badan anda!");
                 }
             });
             error = true;
@@ -125,8 +159,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     lytTinggiBdn.setErrorEnabled(true);
-                    lytTinggiBdn.setError("Isi usia anda!");
-                    txtTinggiBdn.setError("Isi Usia anda!");
+                    lytTinggiBdn.setError("Isi tinggi badan anda!");
+                    txtTinggiBdn.setError("Isi tinggi badan anda!");
                 }
             });
             error = true;
