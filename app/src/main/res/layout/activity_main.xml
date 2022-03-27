@@ -25,6 +25,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:inputType="numberDecimal"
+
         android:hint="@string/usia"
         app:layout_constraintTop_toBottomOf="@id/judul"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -67,6 +68,7 @@
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
     <Button
+        android:id="@+id/btnUji"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/lytTinggiBdn"
