@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Anda Tahes</string>
     <string name="judul">Anda Tahes?</string>
+    <string name="usia">Usia</string>
+    <string name="berat_badan">Berat Badan (kg)</string>
+    <string name="tinggi_badan">Tinggi Badan (cm)</string>
+    <string name="label_btn">Uji Tahesmu</string>
 </resources>
