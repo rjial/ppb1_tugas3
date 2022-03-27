@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextInputEditText txtNama, txtUsia, txtBeratBdn, txtTinggiBdn;
     TextInputLayout lytNama, lytUsia, lytBeratBdn, lytTinggiBdn;
-    Button btnUji;
+    Button btnUji, btnKeluar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +30,18 @@ public class MainActivity extends AppCompatActivity {
         txtUsia = (TextInputEditText) findViewById(R.id.txtUsia);
         txtBeratBdn = (TextInputEditText) findViewById(R.id.txtBeratBdn);
         txtTinggiBdn = (TextInputEditText) findViewById(R.id.txtTinggiBdn);
+        lytNama = (TextInputLayout) findViewById(R.id.lytNama);
         lytUsia = (TextInputLayout) findViewById(R.id.lytUsia);
         lytBeratBdn = (TextInputLayout) findViewById(R.id.lytBeratBdn);
         lytTinggiBdn = (TextInputLayout) findViewById(R.id.lytTinggiBdn);
         btnUji = (Button) findViewById(R.id.btnUji);
+        btnKeluar = (Button) findViewById(R.id.btnKeluar);
+        btnKeluar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finishAffinity();
+            }
+        });
         btnUji.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
