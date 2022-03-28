@@ -1,97 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BMIActivity">
-
-    <Button
-        android:id="@+id/btnKembali"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/kembali"
-         />
-    <TextView
-        android:id="@+id/txtHaloNama"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txtHaloNama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-        android:fontFamily="@font/google_regular"
-        android:layout_marginTop="50dp"
-        android:textSize="24sp"
-        android:text="Halo,"
-        />
-    <LinearLayout
-        android:id="@+id/lytTahes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtHaloNama"
-        android:layout_marginTop="24dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:fontFamily="@font/google_regular"
+            android:layout_marginTop="50dp"
             android:textSize="24sp"
-            android:text="Status tubuh anda "
+            android:text="Halo,"
             />
-        <TextView
-            android:id="@+id/txtStatusTahes"
+        <LinearLayout
+            android:id="@+id/lytTahes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/google_bold"
-            android:textSize="24sp"
-            android:textColor="@color/primary_green"
-            android:text="Tahes!"
-            />
-    </LinearLayout>
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/lytTahes"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        app:strokeWidth="1dp"
-        app:strokeColor="@color/stroke_color">
-        <LinearLayout
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtHaloNama"
+            android:layout_marginTop="24dp"
+            >
+
+            <TextView
+                android:id="@+id/txtStatusBMI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/google_regular"
+                android:textSize="16sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="Tahes!"
+                />
+        </LinearLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardBMI"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="20dp">
-            <ImageView
-                android:layout_width="128dp"
-                android:layout_height="128dp"
-                android:src="@drawable/tahes"
-                app:tint="@color/primary_green" />
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/lytTahes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/stroke_color">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:padding="20dp">
+                <ImageView
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    android:src="@drawable/tahes"
+                    app:tint="@color/primary_green" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Skor BMI Anda"
+                        android:fontFamily="@font/google_medium"/>
+                    <TextView
+                        android:id="@+id/txtSkorBMI"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/primary_green"
+                        android:text="XXX"
+                        android:textSize="80sp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardWHO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardBMI"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/stroke_color"
+
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Skor BMI Anda"
+                    android:text="@string/who_status"
                     android:fontFamily="@font/google_medium"/>
                 <TextView
-                    android:id="@+id/txtSkorBMI"
+                    android:id="@+id/txtStatusWHO"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Obese Type 2"
                     android:textColor="@color/primary_green"
-                    android:text="XXX"
-                    android:textSize="80sp"
-                    />
+                    android:textSize="50sp"
+                    android:fontFamily="@font/google_regular"/>
             </LinearLayout>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardAsian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardWHO"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/stroke_color"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/status_asian"
+                    android:fontFamily="@font/google_medium"/>
+                <TextView
+                    android:id="@+id/txtStatusAsian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="XXXXXXXXX"
+                    android:textColor="@color/primary_green"
+                    android:textSize="50sp"
+                    android:fontFamily="@font/google_regular"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <Button
+            android:id="@+id/btnKembali"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardAsian"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/kembali"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

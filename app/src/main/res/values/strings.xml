@@ -8,4 +8,6 @@
     <string name="kembali">Kembali</string>
     <string name="nama">Nama</string>
     <string name="keluar">Keluar</string>
+    <string name="who_status">Status tubuh anda menurut WHO</string>
+    <string name="status_asian">Status tubuh anda menurut Asian Health Care</string>
 </resources>
