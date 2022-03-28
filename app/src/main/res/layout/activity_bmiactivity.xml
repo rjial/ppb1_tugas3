@@ -41,14 +41,15 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/google_regular"
             android:textSize="24sp"
-            android:text="Selamat anda "
+            android:text="Status tubuh anda "
             />
         <TextView
+            android:id="@+id/txtStatusTahes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/google_bold"
             android:textSize="24sp"
-            android:textColor="@color/teal_700"
+            android:textColor="@color/primary_green"
             android:text="Tahes!"
             />
     </LinearLayout>
@@ -70,7 +71,26 @@
             <ImageView
                 android:layout_width="128dp"
                 android:layout_height="128dp"
-                android:src="@drawable/tahes"/>
+                android:src="@drawable/tahes"
+                app:tint="@color/primary_green" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Skor BMI Anda"
+                    android:fontFamily="@font/google_medium"/>
+                <TextView
+                    android:id="@+id/txtSkorBMI"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/primary_green"
+                    android:text="XXX"
+                    android:textSize="80sp"
+                    />
+            </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
